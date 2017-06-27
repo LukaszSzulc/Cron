@@ -9,8 +9,16 @@ namespace Cron
 
     class SampleInteraface : ISampleInteraface
     {
+        private readonly IDatabaseFake _databaseFake;
+
+        public SampleInteraface(IDatabaseFake databaseFake)
+        {
+            _databaseFake = databaseFake;
+        }
         public void DoSomethingUseful()
         {
+            var fake = _databaseFake.GetSomeEntities();
+            Debug.Write(fake.Count);
             Debug.Write("Konrad to pała");
         }
     }

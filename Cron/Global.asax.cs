@@ -25,6 +25,7 @@ namespace Cron
             // the class in Global.asax.)
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterType<SampleInteraface>().As<ISampleInteraface>().InstancePerLifetimeScope();
+            builder.RegisterType<DatabaseFake>().As<IDatabaseFake>();
             builder.RegisterType<SampleJob>();
             builder.RegisterModelBinders(typeof(MvcApplication).Assembly);
             builder.RegisterModelBinderProvider();
